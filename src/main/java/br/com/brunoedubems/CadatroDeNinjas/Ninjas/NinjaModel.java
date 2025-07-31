@@ -1,4 +1,4 @@
-package br.com.brunoedubems.CadatroDeNinjas;
+package br.com.brunoedubems.CadatroDeNinjas.Ninjas;
 
 import br.com.brunoedubems.CadatroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
@@ -30,5 +30,5 @@ public class NinjaModel {
     //um ninja tem uma unica missao, Muitos ninjas terão uma nija
     @ManyToOne
     @JoinColumn(name = "missoes_id") // criando a coluna da foreing key / chave estrangeira
-    private List<MissoesModel> missoes;
+    private MissoesModel missoes;
 }

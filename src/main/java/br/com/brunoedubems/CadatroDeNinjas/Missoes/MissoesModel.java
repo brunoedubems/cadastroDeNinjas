@@ -1,11 +1,13 @@
 package br.com.brunoedubems.CadatroDeNinjas.Missoes;
 
-import br.com.brunoedubems.CadatroDeNinjas.NinjaModel;
+import br.com.brunoedubems.CadatroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
         import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_missoes")
@@ -24,6 +26,6 @@ public class MissoesModel {
     private String dificuldade;
     //Muito ninjas para uma missão
     @OneToMany(mappedBy = "missoes")
-    private NinjaModel ninja;
+    private List<NinjaModel> ninjas; // ou Set<NinjaModel>
 
 }
