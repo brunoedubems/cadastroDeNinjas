@@ -16,7 +16,7 @@ public class NinjaService {
     }
 
 
-    //Listar todos os meus ninjas
+    // Listar todos os meus ninjas
     public List<NinjaModel> listarNinjas(){
         return ninjaRepository.findAll();
     }
@@ -25,7 +25,8 @@ public class NinjaService {
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.orElse(null);
     }
-    //cria um novo ninja
+
+    // Cria um novo ninja
     public NinjaModel criarNinja(NinjaModel ninja){
         return  ninjaRepository.save(ninja);
     }
@@ -36,4 +37,12 @@ public class NinjaService {
          ninjaRepository.deleteById(id);
     }
 
+    // Atualizar ninja
+    public  NinjaModel atualizaNinja(Long id, NinjaModel ninjaAtualizado){
+        if(ninjaRepository.existsById(id)){
+            ninjaAtualizado.setId(id); // pq não vai o id na requisição
+            return ninjaRepository.save(ninjaAtualizado);
+        }
+        return  null;
+    }
 }
