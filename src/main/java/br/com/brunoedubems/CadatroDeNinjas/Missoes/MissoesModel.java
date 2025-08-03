@@ -22,9 +22,16 @@ public class MissoesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nome")
     private String nome;
 
     private String dificuldade;
+
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    private String rank;
+
     //Muito ninjas para uma missão
     @OneToMany(mappedBy = "missoes")
     @JsonIgnore
