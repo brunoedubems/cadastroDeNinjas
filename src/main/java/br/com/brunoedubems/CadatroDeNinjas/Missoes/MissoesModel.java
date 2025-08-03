@@ -22,9 +22,11 @@ public class MissoesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nome")
     private String nome;
 
     private String dificuldade;
+
     //Muito ninjas para uma missão
     @OneToMany(mappedBy = "missoes")
     @JsonIgnore

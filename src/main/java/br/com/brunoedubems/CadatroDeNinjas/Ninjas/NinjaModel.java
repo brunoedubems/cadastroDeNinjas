@@ -27,7 +27,12 @@ public class NinjaModel {
 
     private int idade;
 
-    //um ninja tem uma unica missao, Muitos ninjas terão uma nija
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    @Column(name = "rank")
+    private String rank;
+    //um ninja tem uma unica missao, Muitos ninjas terão uma ninja
     @ManyToOne
     @JoinColumn(name = "missoes_id") // criando a coluna da foreing key / chave estrangeira
     private MissoesModel missoes;
