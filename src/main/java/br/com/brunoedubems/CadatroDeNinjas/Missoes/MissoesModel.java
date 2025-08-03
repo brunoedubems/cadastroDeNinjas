@@ -27,11 +27,6 @@ public class MissoesModel {
 
     private String dificuldade;
 
-    @Column(name = "img_url")
-    private String imgUrl;
-
-    private String rank;
-
     //Muito ninjas para uma missão
     @OneToMany(mappedBy = "missoes")
     @JsonIgnore
