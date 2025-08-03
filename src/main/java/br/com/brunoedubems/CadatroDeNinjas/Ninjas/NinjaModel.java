@@ -2,19 +2,16 @@ package br.com.brunoedubems.CadatroDeNinjas.Ninjas;
 
 import br.com.brunoedubems.CadatroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Table( name = "tb_cadastro")
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = "missoes")
+@Data
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

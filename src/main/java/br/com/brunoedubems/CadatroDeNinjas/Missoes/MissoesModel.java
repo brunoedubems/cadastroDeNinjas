@@ -3,10 +3,7 @@ package br.com.brunoedubems.CadatroDeNinjas.Missoes;
 import br.com.brunoedubems.CadatroDeNinjas.Ninjas.NinjaModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-        import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -14,8 +11,8 @@ import java.util.List;
 @Table(name = "tb_missoes")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@ToString(exclude = "missoes")
+@Data
 public class MissoesModel {
 
     @Id
