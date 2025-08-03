@@ -10,14 +10,16 @@ import java.util.Optional;
 public class NinjaService {
 
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
 
-    public NinjaService(NinjaRepository ninjaRepository) {
+    public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
 
     // Listar todos os meus ninjas
-    public List<NinjaModel> listarNinjas(){
+    public List<NinjaModel> listarNinjas() {
         return ninjaRepository.findAll();
     }
 
@@ -27,22 +29,24 @@ public class NinjaService {
     }
 
     // Cria um novo ninja
-    public NinjaModel criarNinja(NinjaModel ninja){
-        return  ninjaRepository.save(ninja);
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO) {
+        NinjaModel ninja = ninjaMapper.map(ninjaDTO);
+        ninja = ninjaRepository.save(ninja);
+        return ninjaMapper.map(ninja);
     }
 
 
     // Deletar o ninja
-    public void deletarNinjaPorId(Long id){
-         ninjaRepository.deleteById(id);
+    public void deletarNinjaPorId(Long id) {
+        ninjaRepository.deleteById(id);
     }
 
     // Atualizar ninja
-    public  NinjaModel atualizaNinja(Long id, NinjaModel ninjaAtualizado){
-        if(ninjaRepository.existsById(id)){
+    public NinjaModel atualizaNinja(Long id, NinjaModel ninjaAtualizado) {
+        if (ninjaRepository.existsById(id)) {
             ninjaAtualizado.setId(id); // pq não vai o id na requisição
             return ninjaRepository.save(ninjaAtualizado);
         }
-        return  null;
+        return null;
     }
 }
